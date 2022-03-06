@@ -1,0 +1,86 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{listings}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}     % Can be removed after putting your text content
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{physoly}
+\pagestyle{fancy}
+\numberwithin{equation}{section}
+\titleformat{\section}
+  {\large\scshape}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\scshape}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\scshape}{\thesubsubsection}{1em}{}
+\pagenumbering{arabic}
+\usepackage[
+    backend=biber, 
+    natbib=true,
+    style=numeric,
+    sorting=none
+]{biblatex}
+\usepackage{csquotes}
+\addbibresource{citations.bib}
+
+
+\title{\vspace{-50pt}\bfseries{\Large{Quirks of the Quantum Pendulum}}\vspace{-5pt}}
+\author{\normalfont{Jonah Chen}\\\vspace{-3pt}\small{University of Toronto}\\
+\vspace{-10pt}\small{\url{jonah.chen@mail.utoronto.ca}}}
+\date{}
+
+\begin{document}
+\maketitle
+\sffamily
+
+Trying to make a three-blue-one-brown like video about the quantum harmonic oscillator, and many interesting properties that arise it if you just look slightly deeper than what is taught in a normal course.
+
+\section{Introduction and Motivation}
+
+\begin{script}
+    a
+\end{script}
+
+\section{Mathematical Preliminaries}
+
+\subsection{Linear Operators}
+
+\subsection{Inner Product and Bra-Ket}
+
+\subsection{Hermitian Operators and Adjoint}
+
+\section{Solving the Quantum Pendulum}
+
+We will try to solve for the energies and wavefunctions of the quantum harmonic oscillator. The hamiltonian is given by
+\begin{align}
+    \hat H&=\frac{\hat p^2}{2m}+\frac{1}{2}m\omega^2\hat x^2\label{qho_hamiltonian}
+\end{align}
+
+
+\input{sln/brute_force.tex}
+\input{sln/operator.tex}
+
+\section{Implications}
+
+\subsection{Exponentials and Translations}
+
+\subsection{Poisson Distribution and Coherent States}
+
+\subsection{Uncertainty and Squeezed States}
+
+\begin{thebibliography}{99}
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,117 @@
+\subsection{Dimensionless Position and Momentum}
+
+It is common in physics to solve a problem by using quantities that are natural to the problem. By using quantities that are natural, like the mass of the particle \(m,\) the frequency of the oscillator \(\omega,\) and one of the fundamental constants for quantum mechanics \(\hbar,\) to define more natural position and momentum coordinates as
+\begin{align}
+    X=x\sqrt{\frac{m\omega}{2\hbar}}
+\end{align}
+Then, the operators
+\begin{align}
+    \hat X &= \hat x\sqrt{\frac{m\omega}{2\hbar}}=X\\
+    \hat P &= \hat p\sqrt{\frac{1}{2m\hbar\omega}}=i\partial_X
+\end{align}
+
+Substituting these natural coordinates for \(\hat x\) and \(\hat p\) in equation \eqref{qho_hamiltonian} yields
+\begin{align}
+    \hat H&=\frac{\left(2m\hbar\omega\hat P^2\right)}{2m}+\frac{1}{2}m\omega^2 \left(\frac{2\hbar}{m\omega}\hat X^2\right)\\
+    &=\hbar\omega\left(\hat P^2+\hat X^2\right)
+\end{align}
+
+\subsection{Sum and Difference of Squares}
+We've all learned in grade school that a difference of squares, \(a^2-b^2\), can be factored into \(a-b\) and \(a+b.\) In a similar manner, the sum of squares \(a^2+b^2\) can be factored into \(a+ib\) and \(a-ib\). We can prove this easily by using the distributive property of multiplication and the fact that \(i^2=-1.\)
+\begin{align}
+    (a-ib)(a+ib)&=a^2+b^2+\cancel{(a)(ib)}+\cancel{(-ib)(a)}\label{sum_squares_commute}
+\end{align}
+If \(a\) and \(b\) are real or complex numbers, this is perfectly fine as the order which you multiply \(a\) and \(b\) does not matter. But this is a problem when \(a\) and \(b\) are linear operators, as they may not commute. If we can't assume \(ab=ba,\) equation \eqref{sum_squares_commute} is false. Instead, we can define the \textbf{commutator} as how different \(ab\) is from \(ba,\) as
+\begin{equation}
+    [a,b]=:ab-ba
+\end{equation}
+So this means,
+\begin{align}
+    (a-ib)(a+ib)&=a^2+b^2+(a)(ib)+(-ib)(a)\\
+    &=a^2+b^2+i(ab-ba)\\
+    &=a^2+b^2+i[a,b]\label{sum_squares}
+\end{align}
+As an example, we will compute the commutator between \(\hat X\) and \(\hat P.\)
+\begin{align}
+    [\hat X,\hat P]&=\hat X\hat P-\hat P\hat X\\
+    &=\sqrt{\frac{m\omega}{2\hbar}}\hat x\sqrt{\frac{1}{2m\hbar\omega}}\hat p-\sqrt{\frac{1}{2m\hbar\omega}}\hat p\sqrt{\frac{m\omega}{2\hbar}}\hat x\\
+    &=\frac{1}{2\hbar}\left(\hat x\hat p-\hat p\hat x\right)\\
+    &=\frac{1}{2\hbar}\left(x(i\hbar\partial_x)-(i\hbar\partial_x)x\right)\\
+    &=\frac{i}{2}(x\partial_x-\partial_xx)
+\end{align}
+It may be confusing how to compute this quantity, but note what linear operators do is act on functions. The sum or product of linear operators is still a linear operator, thus this commutator should be a linear operator. Hence, let's try to compute the commutator on an arbiturary function \(f,\) using the product rule:
+\begin{align}
+    (x\partial_x-\partial_xx)f&=x\partialderivative{f}{x}-\partial_x(xf(x))=x\partialderivative{f}{x}-f-x\partialderivative{f}{x}=-f\\
+    (x\partial_x-\partial_xx)&=-\mathbb{I}
+\end{align}
+So,
+\begin{align}
+    [\hat X,\hat P]&=-\frac{i}{2}\mathbb{I}
+\end{align}
+and
+\begin{align}
+    \hat X^2+\hat P^2&=(\hat X-i\hat P)(\hat X+i\hat P)+i[\hat X,\hat P]\\
+    &=(\hat X-i\hat P)(\hat X+i\hat P)+\frac{1}{2}\mathbb{I}
+\end{align}
+From now on, we will not write out the identity operator explicitly.
+
+\noindent We define the two factors as the annihilation operator \(\hat a\) and the creation operator \(\hat a^\dagger\).
+\begin{align}
+    \hat a &= X+i\hat P\\
+    \hat a^\dagger &= X-i\hat P
+\end{align}
+And we can write the hamiltonian as
+\begin{align}
+    \hat H=\hbar\omega\left(a^\dagger a+\frac{1}{2}\right)
+\end{align}
+I wonder where the ground state energy of \(\frac{1}{2}\hbar\omega\) comes from.
+\subsection{Solving the Problem the ``Proper'' Way}
+We have to calculate the commutation relations
+\begin{align}
+    [\hat a,\hat a^\dagger]&=[(\hat X-i\hat P),(\hat X+i\hat P)]\\
+    &=[\hat X, \hat X]+[\hat X,i\hat P]+[-i\hat P,\hat X]+[i\hat P,-i\hat P]\\
+    &=0+\frac{1}{2}+\frac{1}{2}+0\\
+    &=1
+\end{align}
+For convenience, we will define a number operator
+\begin{align}
+    \hat N &= \hat a^\dagger\hat a
+\end{align}
+Here is the solution to the problem. Assume we have some vector \(\ket\psi\) that is an eigenvector of \(\hat N\) with eigenvalue \(n.\) Then, 
+\begin{align}
+    \hat H\ket\psi&=\hbar\omega\left(\hat N+\frac{1}{2}\right)\ket\psi\\
+    &=\hbar\omega\left(n+\frac{1}{2}\right)\ket\psi
+\end{align}
+so \(\ket\psi\) is also be an eigenvector to \(\hat H\) with eigenvalue \(E=\hbar\omega\left(n+\frac{1}{2}\right).\) Now we consider \(\hat a\ket\psi\) and \(\hat a^\dagger\ket\psi.\) Are these also eigenvectors? If so, what would be the eigenvalues?
+\begin{align}
+    \hat N(\hat a\ket\psi)&=\hat a^\dagger\hat a\hat a\ket\psi\\
+    &=\hat a(\hat a^\dagger\hat a-[\hat a,\hat a^\dagger])\ket\psi\\
+    &=\hat a(\hat N-1)\ket\psi\\
+    &=(n-1)(\hat a\ket\psi)\\
+    \hat H(\hat a\ket\psi)&=(E-\hbar\omega)\ket\psi
+\end{align}
+So, \(\hat a\ket\psi\) is also an eigenvector, but the energy eigenvalue is decreased by \(\hbar\omega.\)
+\begin{align}
+    \hat N(\hat a^\dagger\ket\psi)&=\hat a^\dagger\hat a\hat a^\dagger\ket\psi\\
+    &=\hat a^\dagger(\hat a^\dagger\hat a+[\hat a,\hat a^\dagger])\ket\psi\\
+    &=\hat a^\dagger(\hat N+1)\ket\psi\\
+    &=(n+1)(\hat a^\dagger\ket\psi)\\
+    \hat H(\hat a^\dagger\ket\psi)&=(E+\hbar\omega)\ket\psi
+\end{align}
+So, \(\hat a^\dagger\ket\psi\) is also an eigenvector, but the energy eigenvalue is increased by \(\hbar\omega.\)
+
+\noindent We know that at least one \(\ket\psi\) exists because of the E\&U theorems. However, we know that the physical system must have a minimum energy. Let's call this state \(\ket0\). Then, we know this state must be the kernel of \(\hat a\), as otherwise \(\hat a\ket0\) would have lower energy that \(\ket0.\) The ground state energy of the harmonic oscillator is now trivial,
+\begin{align}
+    \hat H\ket 0=\hbar\omega\left(\hat a^\dagger\hat a+\frac{1}{2}\right)\ket 0=\frac{1}{2}\hbar\omega\ket0
+\end{align}
+We can write the annihilation operator in the
+\begin{align}
+    \hat{a}=\left(X+\partial_X\right)
+\end{align}
+Let \(\braket{x}{0}=\psi_0(x)\)
+\begin{align}
+    \hat a\ket0&=(X+\partial_X)\psi_0(X)=0\\
+    \partialderivative{\psi_0}{X}&=-X\psi_0(X)\\
+    \psi_0(X)&=Ae^{-X^2/2}
+\end{align}
+Using the normalization condition \(\braket{0}{0}=1,\) we can find \(A=1/\sqrt{2\pi}.\) This is the exact same solution as the previous section.
