@@ -1,1 +1,14 @@
 \subsection{Brute Force Approach}
+As we established, we only need to solve the time independent schrodinger equation. With the harmonic oscillator hamiltonian, we can write the schrodinger equation as
+\begin{align}
+    -\derivative{^2\psi(X)}{X^2}+X^2\psi(X)=E\psi(X)
+\end{align}
+Now, we evaluate the behavior as \(X\to\pm\infty.\) Then, \(X^2>>E\) so the term \(E\psi(X)\) can be neglected. The resulting equation is
+\begin{align}
+    -\derivative{^2\psi(X)}{X^2}+X^2\psi(X)&=0\\
+    \derivative{^2\psi(X)}{X^2}&=X^2\psi(X)
+\end{align}
+For \(\psi(X)=e^{-X^2/2},\) the second derivative is \((X^2+1)\psi(X),\) which for \(X\to\pm\infty\) is close to \(X^2\psi(X)\). So, from this we guess the solution is in the form \(\psi(X)=u(X)e^{-X^2/2}\). Substituting into the equation yields
+\begin{align}
+    \derivative{}{}
+\end{align}

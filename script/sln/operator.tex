@@ -1,21 +1,3 @@
-\subsection{Dimensionless Position and Momentum}
-
-It is common in physics to solve a problem by using quantities that are natural to the problem. By using quantities that are natural, like the mass of the particle \(m,\) the frequency of the oscillator \(\omega,\) and one of the fundamental constants for quantum mechanics \(\hbar,\) to define more natural position and momentum coordinates as
-\begin{align}
-    X=x\sqrt{\frac{m\omega}{2\hbar}}
-\end{align}
-Then, the operators
-\begin{align}
-    \hat X &= \hat x\sqrt{\frac{m\omega}{2\hbar}}=X\\
-    \hat P &= \hat p\sqrt{\frac{1}{2m\hbar\omega}}=i\partial_X
-\end{align}
-
-Substituting these natural coordinates for \(\hat x\) and \(\hat p\) in equation \eqref{qho_hamiltonian} yields
-\begin{align}
-    \hat H&=\frac{\left(2m\hbar\omega\hat P^2\right)}{2m}+\frac{1}{2}m\omega^2 \left(\frac{2\hbar}{m\omega}\hat X^2\right)\\
-    &=\hbar\omega\left(\hat P^2+\hat X^2\right)
-\end{align}
-
 \subsection{Sum and Difference of Squares}
 We've all learned in grade school that a difference of squares, \(a^2-b^2\), can be factored into \(a-b\) and \(a+b.\) In a similar manner, the sum of squares \(a^2+b^2\) can be factored into \(a+ib\) and \(a-ib\). We can prove this easily by using the distributive property of multiplication and the fact that \(i^2=-1.\)
 \begin{align}

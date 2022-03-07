@@ -1,0 +1,38 @@
+\subsection{Schrodinger's Equation}
+Usually students see the Schrodinger's equation presented in two forms, the time independent equation which is
+\begin{align}
+    E\ket\psi&=\hat H\ket\psi\\\label{time_indep_SE}
+    &=\left(\frac{\hat p^2}{2m}+V(\hat x)\right)\ket\psi\\
+    &=\left(-\frac{\hbar^2}{2m}\partial_x^2+V(x)\right)\ket\psi
+\end{align}
+These three equations are equivalent, as the RHS is just expanding what the hamiltonian \(\hat H\) is with different specificities. Note that this looks like an eigenvalue equation because it is one, and this equation is also called the ``energy eigenvalue equation''. The time dependent equation is
+\begin{align}
+    i\hbar\partial_t\ket\psi=\hat H\ket\psi\label{time_dep_SE}
+\end{align}
+This equation actually governs how quantum systems evolve in time, similar to how Newton's or Euler-Lagrange's equation govern how classical systems evolve in time.
+\begin{align}
+    -\grad V&=\derivative{\mathbf p}{t}\\
+    \partialderivative{L}{q_i}+\derivative{}{t}\left(\partialderivative{L}{\dot q_i}\right)&=0
+\end{align}
+First, notice that the schrodinger equation is a linear equation. This means given two solutions, any linear combination of them is also a solution. Second, the time dependent equation can be solved easily for solutions of the time independent equation. For the initial state \(\ket{E;0}\) such that \(E\ket{E;0}=\hat H\ket{E;0},\)
+\begin{align}
+    i\hbar\partial_t\ket{E;t}&=\hat H\ket{E;t}\\
+    &=E\ket{E;t}\\
+    \ket{E;t}&=e^{-iEt/\hbar}\ket{E;0}
+\end{align}
+Due to the spectral theorem, any state of the system can be written as a linear combination of energy eigenstates, either of the following depending on if the system has a discrete or continuous spectrum.
+\begin{align}\label{sln_bound}
+    \ket{\psi;t} &= \sum_{n=0}^\infty\ket{E_n;t}=\sum_{n=0}^\infty e^{-iE_nt/\hbar}\ket{E_n;0}\\
+    \ket{\psi;t} &= \int_{-\infty}^\infty\dd E\ket{E;t} = \int_{-\infty}^\infty\dd E\,e^{-iEt/\hbar}\ket{E;0}\label{sln_scattering}
+\end{align}
+Note that there was no assumption made apart from the fact we know the solution of the time independent equation. Hence, this solution is general. Meaning, just by solving the time independent equation, we can fully determine how any state of the system evolves in time. From now on, (for a long time), we will only discuss the time independent wavefunction \(\psi(x)=\braket{x}{\psi}.\)
+
+You may wonder why there are two different equations. Well, that has to do with if the state described is a bound or scattering state.
+
+If it was a bound state, that means the particle is bound to the potential. Meaning, as \(x\to\pm\infty, E<V(x).\) Let's isolate the second derivative of the wavefunction
+\begin{equation}
+    \partial^2_x\psi(x)=\frac{2m}{\hbar}(V(x)-E)\psi(x)=k\psi(x)
+\end{equation}
+(Very Loosely) Here \(k>0\). Let's say the wave function is positive as \(x\to\infty,\) then the second derivative is positive. This means the wavefunction is curving up. Hence, the energy \(E\) must take discrete values for the wave function to be in \(L^2.\) Otherwise, just changing the energy very slightly will cause the wave function to blow up.
+
+This is not true for scattering states where \(k<0,\) as when the wavefunction is positive the second derivative is negative, causing the wavefunction to curve down and oscillate. Hence, a continuous spectrum of energies is valid as scattering states.

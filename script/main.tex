@@ -34,6 +34,7 @@
 \usepackage{csquotes}
 \addbibresource{citations.bib}
 
+\setlength\parindent{0pt}
 
 \title{\vspace{-50pt}\bfseries{\Large{Quirks of the Quantum Pendulum}}\vspace{-5pt}}
 \author{\normalfont{Jonah Chen}\\\vspace{-3pt}\small{University of Toronto}\\
@@ -52,13 +53,19 @@ Trying to make a three-blue-one-brown like video about the quantum harmonic osci
     a
 \end{script}
 
+\subsection{Prereqs}
+\begin{itemize}
+    \item Basic calculus and linear algebra
+\end{itemize}
+
 \section{Mathematical Preliminaries}
 
 \subsection{Linear Operators}
 
 \subsection{Inner Product and Bra-Ket}
 
-\subsection{Hermitian Operators and Adjoint}
+\input{math/hermitian.tex}
+\input{math/schrodinger.tex}
 
 \section{Solving the Quantum Pendulum}
 
@@ -67,7 +74,7 @@ We will try to solve for the energies and wavefunctions of the quantum harmonic 
     \hat H&=\frac{\hat p^2}{2m}+\frac{1}{2}m\omega^2\hat x^2\label{qho_hamiltonian}
 \end{align}
 
-
+\input{sln/dimensionless.tex}
 \input{sln/brute_force.tex}
 \input{sln/operator.tex}
 
