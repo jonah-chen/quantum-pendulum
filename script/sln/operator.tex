@@ -53,8 +53,13 @@ We have to calculate the commutation relations
     [\hat a,\hat a^\dagger]&=[(\hat X-i\hat P),(\hat X+i\hat P)]\\
     &=[\hat X, \hat X]+[\hat X,i\hat P]+[-i\hat P,\hat X]+[i\hat P,-i\hat P]\\
     &=0+\frac{1}{2}+\frac{1}{2}+0\\
-    &=1
+    &=1\\
+    a^\dagger a&=aa^\dagger+1\\
+    aa^\dagger&=a^\dagger a-1
 \end{align}
+\begin{script}
+    This means every time we move an \(a\) over an \(a^\dagger\), we need to add 1; and every time we move an \(a^\dagger\) over an \(a\), we need to subtract 1. This will be our best friend for the rest of the video. 
+\end{script}
 For convenience, we will define a number operator
 \begin{align}
     \hat N &= \hat a^\dagger\hat a
